@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+#file {
+  display: none;
+}
+
+#img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+#txt {
+  padding: 5px;
+  width: calc(100% - 10px);
+}

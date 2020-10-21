@@ -1,0 +1,13 @@
+<picture *ngIf="mode === 'EDIT'">
+	<label for="file">
+    <img id="img" src="{{src || 'http://placehold.it/75X75'}}" />
+  </label>
+
+	<input type="file" id="file" #file/>
+
+	<br/>
+	<input id="txt" [(ngModel)]="src" placeholder="Click on the Image or put your URL here" (ngModelChange)="srcUpdate.next($event)" />
+</picture>
+
+
+	<img *ngIf="mode === 'RENDER'" id="img" src="{{src || 'http://placehold.it/75X75'}}" />

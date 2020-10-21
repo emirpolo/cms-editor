@@ -1,0 +1,30 @@
+<button (click)="toggleMode()" class="cms-toggle-mode">
+  Click to <strong>{{mode == 'EDIT' ? 'Preview' : 'Edit' }}</strong>
+</button>
+
+<article [ngClass]="{'cms-article': true, 'cms-edit-mode': mode=='EDIT'}">
+  <div class="cms-article--item" *ngFor="let data of pageData; let i = index">
+    <cms-template-item
+      [data]="data"
+      [mode]="mode"
+      [user]="user"
+      (componentChange)="dataChangeHandler(i)($event)"
+    ></cms-template-item>
+
+    <button
+      *ngIf="mode==='EDIT'"
+      class="cms-article-delete-item"
+      (click)="delete(i)"
+    >
+      Delete
+    </button>
+  </div>
+</article>
+
+<ul *ngIf="mode==='EDIT'" class="cms-add-menu">
+  <h3>Add Widget</h3>
+
+  <li (click)="add('image')"><i>+</i> Image</li>
+  <li (click)="add('text')"><i>+</i> Text Editor</li>
+  <li (click)="add('hello')"><i>+</i> Hello Widget</li>
+</ul>

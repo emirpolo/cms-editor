@@ -1,0 +1,7 @@
+<textarea  *ngIf="mode === 'EDIT'"
+[(ngModel)]="content" placeholder="type something"
+ (ngModelChange)="contentUpdate.next($event)">
+
+</textarea>
+
+<div *ngIf="mode === 'RENDER'" [innerHTML]="content"></div>
